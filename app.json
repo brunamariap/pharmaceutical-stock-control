@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "controle_farmaceutico",
+    "slug": "controle_farmaceutico",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
