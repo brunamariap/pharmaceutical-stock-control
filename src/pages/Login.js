@@ -1,20 +1,15 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
+import { TailwindProvider } from "tailwindcss-react-native";
+import { Input } from "../components/input";
 
-
-export function Login() {
-    return (
-      <View style={styles.container}>
-          <Text style={styles.textButton}>Entrar</Text>
+export function Login({ navigation }) {
+  return (
+    <TailwindProvider>
+      <View className="bg-white flex-1 items-center justify-center">
+        <Input placeholder='Identificação de funcionário'/>
+        <Input placeholder='Senha'/>
       </View>
-    );
-  }
-  
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: "#3180BB",
-      alignItems: "center",
-      justifyContent: "center",
-    },
-  });
+    </TailwindProvider>
+  );
+}
