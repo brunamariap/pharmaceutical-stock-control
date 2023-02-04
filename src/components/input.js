@@ -15,3 +15,16 @@ export function Input(props) {
     </TailwindProvider>
   );
 }
+
+export function InputIcon(props) {
+  return (
+    <TailwindProvider>
+      <View className='w-[329px] border border-primary rounded-lg p-4 mt-8'>
+        <TextInput
+          placeholder={props.placeholder}
+          onChangeText={props.onChangeText}
+        />
+      </View>
+    </TailwindProvider>
+  );
+}

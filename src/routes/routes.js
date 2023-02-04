@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Home } from "./pages/home";
 import { Login } from "./pages/login";
 import { Register } from "./pages/register";
+import { Inicio } from "./pages/inicio";
 
 const Stack = createNativeStackNavigator()
 
@@ -21,6 +22,10 @@ export function RoutesStack(){
             <Stack.Screen
                 name="Register"
                 component={Register}
+            />
+            <Stack.Screen
+                name="Inicial"
+                component={Inicio}
             />
         </Stack.Navigator>
     )
