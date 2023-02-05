@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from "@react-navigation/native";
-import { RoutesStack } from './src/routes/routes';
+import { RoutesStack } from './src/routes/rotas';
 
 export default function App() {
   return (

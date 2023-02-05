@@ -9,6 +9,7 @@ module.exports = {
         gray: "#676767",
         black: "#3D3D3D",
         "background-color": "#FAFAFA",
+        'cancel':"#C92A2A"
       },
     },
   },

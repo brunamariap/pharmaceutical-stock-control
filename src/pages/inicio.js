@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 import { TailwindProvider } from "tailwindcss-react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from '@expo/vector-icons'; 
@@ -11,7 +11,7 @@ export function Inicio({ navigation }) {
         <Text className="font-semibold text-black text-2xl">Categorias</Text>
 
         <View>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('Lista medicamentos')}>
             <View className="bg-primary self-center p-6 rounded-2xl">
               <MaterialIcons name="medical-services" size={80} color="white" />
             </View>
@@ -31,7 +31,7 @@ export function Inicio({ navigation }) {
 
           <TouchableOpacity>
             <View className="bg-primary self-center p-6 rounded-2xl">
-              <MaterialIcons name="medical-services" size={80} color="white" />
+              <Image className="w-20 h-20" source={require('../icons/vitamin.png')}/>
             </View>
             <Text className="self-center font-semibold text-black">
               Suplementos e Vitaminas
@@ -40,7 +40,7 @@ export function Inicio({ navigation }) {
 
           <TouchableOpacity>
             <View className="bg-primary self-center p-6 rounded-2xl">
-              <MaterialIcons name="medical-services" size={80} color="white" />
+            <Image className="w-20 h-20" source={require('../icons/perfume.png')}/>
             </View>
             <Text className="self-center font-semibold text-black">
               Beleza e Cuidados
