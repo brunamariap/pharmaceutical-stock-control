@@ -5,16 +5,16 @@ import { Input } from "../components/input";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import uuid from "react-native-uuid";
 
-export function AddMedicamento({ navigation }) {
+export function AddCuidados({ navigation }) {
   const [nameItem, setNameItem] = useState("");
   const [priceItem, setPriceItem] = useState(0);
   const [qtdItem, setQtdItem] = useState("");
-  const [medicamentos, setMedicamentos] = useState([]);
+  const [cuidados, setCuidados] = useState([]);
 
   async function atualizarDados() {
-    const response = await AsyncStorage.getItem("@app-farmaceutico:medicamentos");
+    const response = await AsyncStorage.getItem("@app-farmaceutico:cuidados");
     const data = response ? JSON.parse(response) : {};
-    setMedicamentos(data);
+    setCuidados(data);
     console.log(data);
   }
 
@@ -24,7 +24,7 @@ export function AddMedicamento({ navigation }) {
   }, []);
   
 
-  async function addMedicamento() {
+  async function addCuidados() {
     const id = uuid.v4();
 
     const newData = {
@@ -34,12 +34,12 @@ export function AddMedicamento({ navigation }) {
       qtdItem,
     };
 
-    const response = await AsyncStorage.getItem("@app-farmaceutico:medicamentos");
+    const response = await AsyncStorage.getItem("@app-farmaceutico:cuidados");
     const previusData = response ? JSON.parse(response) : [];
 
     const data = [...previusData, newData];
 
-    await AsyncStorage.setItem("@app-farmaceutico:medicamentos", JSON.stringify(data));
+    await AsyncStorage.setItem("@app-farmaceutico:cuidados", JSON.stringify(data));
     console.log(newData);
   }
 
@@ -47,7 +47,7 @@ export function AddMedicamento({ navigation }) {
     <TailwindProvider>
       <View className="bg-white flex-1 items-center justify-center gap-y-4">
         <Text className="font-semibold text-black text-2xl self-start ml-12 border-b-2 border-b-black">Cadastrar Produto</Text>
-        <Text className="text-black">Categoria: medicamentos</Text>
+        <Text className="text-black">Categoria: Beleza e cuidados</Text>
 
         <View>
             <Input placeholder='Nome do item' onChangeText={(nameItem) => setNameItem(nameItem)}/>
@@ -55,10 +55,10 @@ export function AddMedicamento({ navigation }) {
             <Input placeholder='Quantidade disponível' onChangeText={(qtdItem) => setQtdItem(qtdItem)}/>
         </View>
         
-        <TouchableOpacity className='bg-primary w-[329px] p-4 rounded-2xl mt-8' onPress={addMedicamento}>
+        <TouchableOpacity className='bg-primary w-[329px] p-4 rounded-2xl mt-8' onPress={addCuidados}>
           <Text className='text-white font-bold text-xl self-center'>Finalizar</Text>
         </TouchableOpacity>
-        <TouchableOpacity className="w-[329px] p-4 rounded-2xl bg-[#C92A2A] mt-10" onPress={() => navigation.navigate('Lista medicamentos')}>
+        <TouchableOpacity className="w-[329px] p-4 rounded-2xl bg-[#C92A2A] mt-10" onPress={() => navigation.navigate('Lista cuidados')}>
             <Text className="text-white font-bold text-xl self-center">Cancelar</Text>
         </TouchableOpacity>
       </View>

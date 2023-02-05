@@ -20,7 +20,7 @@ export function Inicio({ navigation }) {
             </Text>
           </TouchableOpacity>
 
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('Lista linha infantil')}>
             <View className="bg-primary self-center p-6 rounded-2xl">
               <MaterialCommunityIcons name="baby-bottle-outline" size={78} color="white" />
             </View>
@@ -38,7 +38,7 @@ export function Inicio({ navigation }) {
             </Text>
           </TouchableOpacity>
 
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('Lista cuidados')}>
             <View className="bg-primary self-center p-6 rounded-2xl">
             <Image className="w-20 h-20" source={require('../icons/perfume.png')}/>
             </View>

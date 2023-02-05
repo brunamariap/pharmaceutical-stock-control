@@ -12,15 +12,15 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { Card } from "../components/card";
 import { AntDesign } from "@expo/vector-icons";
 
-export function ListCuidados({ navigation }) {
-  const [cuidados, setCuidados] = useState([]);
+export function ListBabyCare({ navigation }) {
+  const [babyCare, setBabyCare] = useState([]);
 
   async function atualizarDados() {
     const response = await AsyncStorage.getItem(
-      "@app-farmaceutico:cuidados"
+      "@app-farmaceutico:babyCare"
     );
     const data = response ? JSON.parse(response) : {};
-    setCuidados(data);
+    setBabyCare(data);
     console.log(data);
   }
 
@@ -30,14 +30,14 @@ export function ListCuidados({ navigation }) {
 
   async function removeMedicamento(id) {
     const response = await AsyncStorage.getItem(
-      "@app-farmaceutico:cuidados"
+      "@app-farmaceutico:babyCare"
     );
     const previusData = response ? JSON.parse(response) : [];
 
     const data = previusData.filter((item) => item?.id !== id);
-    setcuidados(data);
+    setbabyCare(data);
     await AsyncStorage.setItem(
-      "@app-farmaceutico:cuidados",
+      "@app-farmaceutico:babyCare",
       JSON.stringify(data)
     );
   }
@@ -49,18 +49,18 @@ export function ListCuidados({ navigation }) {
           <Text className="text-black text-lg">Voltar</Text>
         </TouchableOpacity>
         <Text className="font-semibold text-black text-2xl self-start ml-12">
-          Beleza e Cuidados
+          Linha Infantil
         </Text>
         <TouchableOpacity
           className="bg-primary w-[329px] p-4 rounded-2xl mt-8 flex flex-row gap-x-5 items-center justify-center"
-          onPress={() => navigation.navigate("Cadastrar cuidados")}
+          onPress={() => navigation.navigate("Cadastrar babyCare")}
         >
           <MaterialIcons name="add-circle-outline" size={30} color="white" />
           <Text className="text-white font-bold text-xl">Novo produto</Text>
         </TouchableOpacity>
 
         <FlatList
-          data={cuidados}
+          data={babyCare}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
             <View className="w-[329px] border-2 border-primary rounded-lg content-center flex flex-row py-3 px-4 mt-8">

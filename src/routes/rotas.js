@@ -11,6 +11,10 @@ import { ListMedicamentos } from "../pages/listMedicamentos";
 import { AddMedicamento } from "../pages/addMedicamento";
 import { AntDesign } from "@expo/vector-icons";
 import { FontAwesome5 } from '@expo/vector-icons';
+import { AddCuidados } from "../pages/addCuidados";
+import { ListCuidados } from "../pages/listCuidados";
+import { ListBabyCare } from "../pages/listBabyCare";
+import { AddBabyCare } from "../pages/addBabyCare";
 
 const Stack = createNativeStackNavigator();
 const Guias = createBottomTabNavigator();
@@ -24,6 +28,10 @@ export function RoutesStack() {
       <Stack.Screen name="Inicial" component={RoutesBottomTab} />
       <Stack.Screen name="Lista medicamentos" component={ListMedicamentos} />
       <Stack.Screen name="Cadastrar medicamentos" component={AddMedicamento} />
+      <Stack.Screen name="Lista cuidados" component={ListCuidados} />
+      <Stack.Screen name="Cadastrar cuidados" component={AddCuidados} />
+      <Stack.Screen name="Lista linha infantil" component={ListBabyCare} />
+      <Stack.Screen name="Cadastrar linha infantil" component={AddBabyCare} />
     </Stack.Navigator>
   );
 }
