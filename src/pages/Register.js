@@ -1,25 +1,31 @@
 import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { TailwindProvider } from "tailwindcss-react-native";
-import { InputIcon } from "../components/input";
+import { Input } from "../components/input";
 import { ButtonPrimary } from "../components/buttons";
 import api from "../services/api";
 import uuid from "react-native-uuid";
 
 export function Register({ navigation }) {
   const [posts, setPosts] = useState([]);
-
+  const [employee_full_name, setEmployeeFullName] = useState("")
+  const [employee_id, setEmployeeId] = useState("")
+  const [password, setPassWord] = useState("")
+  const [username, setUsername] = useState("")
+  
   const getDados = async () => {
     const response = await api.get("posts");
     setPosts(response.data);
+    console.log(response.data)
   };
 
   const setDados = async () => {
     await api.post("posts", {
       id: uuid.v4(),
-      employee_full_name: "Mariana",  
-      employee_id: 1290,
-      password: 890
+      employee_full_name,  
+      employee_id,
+      username,
+      password
     });
     getDados();
   };
@@ -36,13 +42,18 @@ export function Register({ navigation }) {
   return (
     <TailwindProvider>
       <View className="bg-white flex-1 items-center justify-center">
-        <InputIcon placeholder="Nome Completo" />
-        <InputIcon placeholder="Identificação de funcionário" />
-        <InputIcon placeholder="Foto de perfil" />
-        <InputIcon placeholder="Senha" />
-        <ButtonPrimary
+        <Input placeholder="Nome Completo" onChangeText={(full_name) => setEmployeeFullName(full_name)}/>
+        <Input placeholder="Identificação de funcionário" onChangeText={(id_employee) => setEmployeeId(id_employee)}/>
+        <Input placeholder="Nome de Usuário" onChangeText={(username) => setUsername(username)}/>
+        <Input placeholder="Senha" onChangeText={(password_em) => setPassWord(password_em)}/>
+
+        {/* <ButtonPrimary
           texto={"Continuar"}
           press={() => navigation.navigate("Inicial")}
+        /> */}
+        <ButtonPrimary
+          texto={"Continuar"}
+          press={setDados}
         />
         <TouchableOpacity onPress={setDados}>
           <Text>Adicionar</Text>
