@@ -54,6 +54,7 @@ export function Register({ navigation }) {
             className="h-60 w-60"
             source={require("../icons/logo_blue.png")}
           />
+          <Text className="text-2xl text-black self-start font-semibold">Cadastro</Text>
         </View>
         <Input
           placeholder="Nome Completo"
