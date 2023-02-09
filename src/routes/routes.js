@@ -15,6 +15,8 @@ import { AddCuidados } from "../pages/addCuidados";
 import { ListCuidados } from "../pages/listCuidados";
 import { ListBabyCare } from "../pages/listBabyCare";
 import { AddBabyCare } from "../pages/addBabyCare";
+import { AddSuplementos } from "../pages/addSuplemento";
+import { ListSuplemento } from "../pages/listSuplemento";
 
 const Stack = createNativeStackNavigator();
 const Guias = createBottomTabNavigator();
@@ -32,6 +34,8 @@ export function RoutesStack() {
       <Stack.Screen name="Cadastrar cuidados" component={AddCuidados} />
       <Stack.Screen name="Lista linha infantil" component={ListBabyCare} />
       <Stack.Screen name="Cadastrar linha infantil" component={AddBabyCare} />
+      <Stack.Screen name="Lista suplementos" component={ListSuplemento} />
+      <Stack.Screen name="Cadastrar suplemento" component={AddSuplementos} />
     </Stack.Navigator>
   );
 }

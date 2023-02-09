@@ -53,7 +53,7 @@ export function ListBabyCare({ navigation }) {
         </Text>
         <TouchableOpacity
           className="bg-primary w-[329px] p-4 rounded-2xl mt-8 flex flex-row gap-x-5 items-center justify-center"
-          onPress={() => navigation.navigate("Cadastrar babyCare")}
+          onPress={() => navigation.navigate("Cadastrar linha infantil")}
         >
           <MaterialIcons name="add-circle-outline" size={30} color="white" />
           <Text className="text-white font-bold text-xl">Novo produto</Text>

@@ -9,24 +9,25 @@ export function Login({ navigation }) {
   const [employee_id, setEmployeeId] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassWord] = useState("");
-  const [users, setUsers] = useState([]);
+  const [posts, setPosts] = useState([]);
 
   const getDados = async () => {
     const response = await api.get("posts");
-    setPosts(response.data);
-    console.log(response.data);
+    //setPosts(response.data);
+    //console.log(response.data);
   };
 
-  function login() {
-    getDados();
-    for (var i = 0; i < users.length; i++) {
-      var obj = users[i];
-      for (var key in obj) {
-        console.log(key);
-        /* if (email == "cm@mail.com" && senha == "12345678") {
-          setUser({ email: email, status: "Logado" });
-        } */
-        var value = obj[key];
+  const login = async () => {
+    getDados()
+    for (let i = 0; i < posts.length; i++) {
+      let obj = posts[i];
+      let id_employee = obj['employee_id']
+      let username_employee = obj['username'];
+      let password_employee = obj['password'];
+      //console.log(id_employee, username_employee, password_employee)
+
+      if (employee_id === id_employee && username_employee === username && password_employee === password){
+        console.log('entrou')
       }
     }
   }
@@ -39,6 +40,7 @@ export function Login({ navigation }) {
             className="h-60 w-60"
             source={require("../icons/logo_blue.png")}
           />
+          <Text className="text-2xl text-black self-start">Entrar</Text>
         </View>
         <Input
           placeholder="Identificação de funcionário"
@@ -57,7 +59,7 @@ export function Login({ navigation }) {
           texto={"Continuar"}
           press={() => navigation.navigate("Inicial")}
         />
-        {/* <ButtonPrimary texto={"Continuar"} press={login} /> */}
+        <ButtonPrimary texto={"Continuar"} press={login} />
         <Text className="font-semibold text-black mt-4">
           Não tem uma conta?
         </Text>

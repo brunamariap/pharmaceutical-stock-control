@@ -47,7 +47,7 @@ export function AddBabyCare({ navigation }) {
     <TailwindProvider>
       <View className="bg-white flex-1 items-center justify-center gap-y-4">
         <Text className="font-semibold text-black text-2xl self-start ml-12 border-b-2 border-b-black">Cadastrar Produto</Text>
-        <Text className="text-black">Categoria: Beleza e babyCare</Text>
+        <Text className="text-black">Categoria: Linha infantil</Text>
 
         <View>
             <Input placeholder='Nome do item' onChangeText={(nameItem) => setNameItem(nameItem)}/>

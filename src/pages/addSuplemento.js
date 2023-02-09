@@ -5,11 +5,11 @@ import { Input } from "../components/input";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import uuid from "react-native-uuid";
 
-export function AddMedicamento({ navigation }) {
+export function AddSuplementos({ navigation }) {
   const [nameItem, setNameItem] = useState("");
   const [priceItem, setPriceItem] = useState(0);
   const [qtdItem, setQtdItem] = useState("");
-  const [suplementos, setUuplementos] = useState([]);
+  const [suplementos, setSuplementos] = useState([]);
 
   async function atualizarDados() {
     const response = await AsyncStorage.getItem("@app-farmaceutico:suplementos");
