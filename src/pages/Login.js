@@ -24,23 +24,8 @@ export function Login({ navigation }) {
     login(employee_id, username, password);
   }
 
-  /* const login = async () => {
-    getDados()
-    for (let i = 0; i < posts.length; i++) {
-      let obj = posts[i];
-      let id_employee = obj['employee_id']
-      let username_employee = obj['username'];
-      let password_employee = obj['password'];
-      //console.log(id_employee, username_employee, password_employee)
-
-      if (employee_id === id_employee && username_employee === username && password_employee === password){
-        console.log('entrou')
-      }
-    }
-  } */
-
   return (
-    <SafeAreaView>
+    
       <TailwindProvider>
         <View className="bg-white flex-1 items-center justify-center">
           <View>
@@ -63,10 +48,10 @@ export function Login({ navigation }) {
             onChangeText={(password_em) => setPassWord(password_em)}
           />
 
-          <ButtonPrimary
+          {/* <ButtonPrimary
             texto={"Continuar"}
             press={() => navigation.navigate("Inicial")}
-          />
+          /> */}
           <ButtonPrimary texto={"Continuar"} press={() => logar()} />
           <Text className="font-semibold text-black mt-4">
             Não tem uma conta?
@@ -76,6 +61,6 @@ export function Login({ navigation }) {
           </TouchableOpacity>
         </View>
       </TailwindProvider>
-    </SafeAreaView>
+    
   );
 }

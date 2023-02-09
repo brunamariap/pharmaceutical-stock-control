@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 import { TailwindProvider } from "tailwindcss-react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { AuthContext } from "../contexts/auth";
 
 export function Inicio({ navigation }) {
+  const {user, logout} = useContext(AuthContext)
+  function sair(){logout()};
+
   return (
     <TailwindProvider>
       <View className="bg-white flex-1 items-center justify-center gap-y-4">
@@ -13,6 +17,9 @@ export function Inicio({ navigation }) {
             className="h-44 w-44"
             source={require("../icons/logo_blue.png")}
           />
+          <TouchableOpacity className='' onPress={()=>sair()}>
+            <Text className='text-cancel'>Sair</Text>
+          </TouchableOpacity>
         </View>
 
         <View>
