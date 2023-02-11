@@ -6,10 +6,10 @@ export function DataProfile(props) {
   return (
     <TailwindProvider>
       <View className="mt-4">
-        <Text className="text-black self-start">{props.nameData}</Text>
-        <View className="w-[329px] border-b-[1px] border-b-[#C1C1C1] items-center justify-center mt-1">
-          <View className='self-start'>{props.icon}</View>
-          <Text className="text-gray text-xl">{props.dataUser}</Text>
+        <Text className="text-black self-start mt-5">{props.nameData}</Text>
+        <View className="w-[329px] border-b-[1px] border-b-[#C1C1C1] flex flex-row items-center py-4">
+          <View className='self-start mr-5'>{props.icon}</View>
+          <Text className="text-black text-xl">{props.dataUser}</Text>
         </View>
       </View>
     </TailwindProvider>
