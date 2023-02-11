@@ -51,8 +51,8 @@ export function AddBabyCare({ navigation }) {
 
         <View>
             <Input placeholder='Nome do item' onChangeText={(nameItem) => setNameItem(nameItem)}/>
-            <Input placeholder='Preço' onChangeText={(priceItem) => setPriceItem(priceItem)}/>
-            <Input placeholder='Quantidade disponível' onChangeText={(qtdItem) => setQtdItem(qtdItem)}/>
+            <Input placeholder='Preço' onChangeText={(priceItem) => setPriceItem(priceItem)} typeKeyboard='number-pad'/>
+            <Input placeholder='Quantidade disponível' onChangeText={(qtdItem) => setQtdItem(qtdItem)} typeKeyboard='number-pad'/>
         </View>
         
         <TouchableOpacity className='bg-primary w-[329px] p-4 rounded-2xl mt-8' onPress={addbabyCare}>

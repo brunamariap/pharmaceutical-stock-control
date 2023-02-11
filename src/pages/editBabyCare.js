@@ -4,27 +4,32 @@ import { TailwindProvider } from "tailwindcss-react-native";
 import { Input } from "../components/input";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import uuid from "react-native-uuid";
+import { useRoute } from "@react-navigation/native";
 
-export function AddCuidados({ navigation }) {
+export function EditdBabyCare({ navigation }) {
   const [nameItem, setNameItem] = useState("");
   const [priceItem, setPriceItem] = useState(0);
   const [qtdItem, setQtdItem] = useState("");
-  const [cuidados, setCuidados] = useState([]);
+  const [babyCare, setBabyCare] = useState([]);
+  const route = useRoute();
+  const currentData = route.params
 
-  async function atualizarDados() {
-    const response = await AsyncStorage.getItem("@app-farmaceutico:cuidados");
+  console.log(currentData[0].id)
+
+  /* async function atualizarDados() {
+    const response = await AsyncStorage.getItem("@app-farmaceutico:babyCare");
     const data = response ? JSON.parse(response) : {};
-    setCuidados(data);
+    setBabyCare(data);
     console.log(data);
   }
 
 
   useEffect(() => {
     atualizarDados();
-  }, []);
+  }, []); */
   
 
-  async function addCuidados() {
+  async function addbabyCare() {
     const id = uuid.v4();
 
     const newData = {
@@ -34,12 +39,12 @@ export function AddCuidados({ navigation }) {
       qtdItem,
     };
 
-    const response = await AsyncStorage.getItem("@app-farmaceutico:cuidados");
+    const response = await AsyncStorage.getItem("@app-farmaceutico:babyCare");
     const previusData = response ? JSON.parse(response) : [];
 
     const data = [...previusData, newData];
 
-    await AsyncStorage.setItem("@app-farmaceutico:cuidados", JSON.stringify(data));
+    await AsyncStorage.setItem("@app-farmaceutico:babyCare", JSON.stringify(data));
     console.log(newData);
   }
 
@@ -47,18 +52,18 @@ export function AddCuidados({ navigation }) {
     <TailwindProvider>
       <View className="bg-white flex-1 items-center justify-center gap-y-4">
         <Text className="font-semibold text-black text-2xl self-start ml-12 border-b-2 border-b-black">Cadastrar Produto</Text>
-        <Text className="text-black">Categoria: Beleza e cuidados</Text>
+        <Text className="text-black">Categoria: Linha infantil</Text>
 
         <View>
-            <Input placeholder='Nome do item' onChangeText={(nameItem) => setNameItem(nameItem)}/>
-            <Input placeholder='Preço' onChangeText={(priceItem) => setPriceItem(priceItem)} typeKeyboard='number-pad'/>
-            <Input placeholder='Quantidade disponível' onChangeText={(qtdItem) => setQtdItem(qtdItem)} typeKeyboard='number-pad'/>
+            <Input placeholder='Nome do item' onChangeText={(nameItem) => setNameItem(nameItem)} default={currentData[0].nameItem}/>
+            <Input placeholder='Preço' onChangeText={(priceItem) => setPriceItem(priceItem)} default={currentData[0].priceItem} typeKeyboard='number-pad'/>
+            <Input placeholder='Quantidade disponível' onChangeText={(qtdItem) => setQtdItem(qtdItem)} default={currentData[0].qtdItem} typeKeyboard='number-pad'/>
         </View>
         
-        <TouchableOpacity className='bg-primary w-[329px] p-4 rounded-2xl mt-8' onPress={addCuidados}>
+        <TouchableOpacity className='bg-primary w-[329px] p-4 rounded-2xl mt-8' onPress={addbabyCare}>
           <Text className='text-white font-bold text-xl self-center'>Finalizar</Text>
         </TouchableOpacity>
-        <TouchableOpacity className="w-[329px] p-4 rounded-2xl bg-[#C92A2A] mt-10" onPress={() => navigation.navigate('Lista cuidados')}>
+        <TouchableOpacity className="w-[329px] p-4 rounded-2xl bg-[#C92A2A] mt-10" onPress={() => navigation.navigate('Lista linha infantil')}>
             <Text className="text-white font-bold text-xl self-center">Cancelar</Text>
         </TouchableOpacity>
       </View>

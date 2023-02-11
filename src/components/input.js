@@ -6,10 +6,13 @@ import { TailwindProvider } from "tailwindcss-react-native";
 export function Input(props) {
   return (
     <TailwindProvider>
-      <View className='w-[329px] border border-primary rounded-lg p-4 mt-8'>
+      <View className="w-[329px] border border-primary rounded-lg p-4 mt-8">
+        {props.icon}
         <TextInput
+          keyboardType={props.typeKeyboard}
           placeholder={props.placeholder}
           onChangeText={props.onChangeText}
+          defaultValue={props.default}
         />
       </View>
     </TailwindProvider>
@@ -19,7 +22,7 @@ export function Input(props) {
 export function InputIcon(props) {
   return (
     <TailwindProvider>
-      <View className='w-[329px] border border-primary rounded-lg p-4 mt-8'>
+      <View className="w-[329px] border border-primary rounded-lg p-4 mt-8">
         <TextInput
           placeholder={props.placeholder}
           onChangeText={props.onChangeText}

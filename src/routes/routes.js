@@ -18,6 +18,7 @@ import { AddBabyCare } from "../pages/addBabyCare";
 import { AddSuplementos } from "../pages/addSuplemento";
 import { ListSuplemento } from "../pages/listSuplemento";
 import { AuthContext } from "../contexts/auth";
+import { EditdBabyCare } from "../pages/editBabyCare";
 
 const Stack = createNativeStackNavigator();
 const Guias = createBottomTabNavigator();
@@ -31,7 +32,7 @@ const Guias = createBottomTabNavigator();
 export function RoutesStack() {
   const { user } = useContext(AuthContext);
 
-  if (user.status !== "Logado") {
+  if (user.status === "Logado") {
     return (
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Home" component={Home} />
@@ -52,6 +53,7 @@ export function RoutesStack() {
         <Stack.Screen name="Cadastrar cuidados" component={AddCuidados} />
         <Stack.Screen name="Lista linha infantil" component={ListBabyCare} />
         <Stack.Screen name="Cadastrar linha infantil" component={AddBabyCare} />
+        <Stack.Screen name="editBabyItem" component={EditdBabyCare} />
         <Stack.Screen name="Lista suplementos" component={ListSuplemento} />
         <Stack.Screen name="Cadastrar suplemento" component={AddSuplementos} />
       </Stack.Navigator>

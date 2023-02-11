@@ -11,6 +11,11 @@ import { TailwindProvider } from "tailwindcss-react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Card } from "../components/card";
 import { AntDesign } from "@expo/vector-icons";
+import { Feather } from '@expo/vector-icons';
+import { EditdBabyCare } from "./editBabyCare";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+const Stack = createNativeStackNavigator();
 
 export function ListBabyCare({ navigation }) {
   const [babyCare, setBabyCare] = useState([]);
@@ -35,11 +40,28 @@ export function ListBabyCare({ navigation }) {
     const previusData = response ? JSON.parse(response) : [];
 
     const data = previusData.filter((item) => item?.id !== id);
-    setbabyCare(data);
+    setBabyCare(data);
     await AsyncStorage.setItem(
       "@app-farmaceutico:babyCare",
       JSON.stringify(data)
     );
+  }
+
+  async function UpdateItem(id){
+    const response = await AsyncStorage.getItem(
+      "@app-farmaceutico:babyCare"
+    );
+    const currentData = response ? JSON.parse(response) : {};
+
+    const data = currentData.filter((item) => item?.id === id);
+    console.log(data)
+
+    /* return(
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="editBabyItem" component={EditdBabyCare} />
+      </Stack.Navigator>
+    ) */
+    navigation.navigate("editBabyItem", data)
   }
 
   return (
@@ -70,6 +92,9 @@ export function ListBabyCare({ navigation }) {
                   price={item.priceItem}
                   quantity={item.qtdItem}
                 />
+                <TouchableOpacity className="self-end mt-4" onPress={() => UpdateItem(item.id)} >
+                  <Feather name="edit" size={24} color="black"/>
+                </TouchableOpacity>
                 <TouchableOpacity className="self-end mt-4" onPress={() => removeMedicamento(item.id)}>
                   <AntDesign name="delete" size={32} color="#C92A2A" />
                 </TouchableOpacity>

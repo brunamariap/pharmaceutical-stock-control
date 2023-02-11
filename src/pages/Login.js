@@ -6,6 +6,7 @@ import { ButtonPrimary } from "../components/buttons";
 import api from "../services/api";
 import { AuthContext } from "../contexts/auth";
 import { SafeAreaView } from "react-native";
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 export function Login({ navigation }) {
   const [employee_id, setEmployeeId] = useState("");
@@ -52,6 +53,7 @@ export function Login({ navigation }) {
             texto={"Continuar"}
             press={() => navigation.navigate("Inicial")}
           /> */}
+          <MaterialCommunityIcons name="account-lock-open-outline" size={24} color="black" />
           <ButtonPrimary texto={"Continuar"} press={() => logar()} />
           <Text className="font-semibold text-black mt-4">
             Não tem uma conta?
