@@ -8,8 +8,9 @@ module.exports = {
         white: "#FFFFFF",
         gray: "#676767",
         black: "#3D3D3D",
+        disabled:"#C1C1C1",
         "background-color": "#FAFAFA",
-        'cancel':"#C92A2A"
+        'cancel':"#C92A2A",
       },
     },
   },

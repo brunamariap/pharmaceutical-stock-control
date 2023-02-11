@@ -36,12 +36,12 @@ export function Login({ navigation }) {
             <Text className="text-2xl text-black self-start font-semibold">Entrar</Text>
           </View>
           <Input
-            placeholder="Identificação de funcionário"
-            onChangeText={(id_employee) => setEmployeeId(id_employee)}
-          />
-          <Input
             placeholder="Nome de Usuário"
             onChangeText={(username) => setUsername(username)}
+          />
+          <Input
+            placeholder="Identificação de funcionário"
+            onChangeText={(id_employee) => setEmployeeId(id_employee)}
           />
           <Input
             placeholder="Senha"
