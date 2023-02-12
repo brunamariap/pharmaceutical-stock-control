@@ -5,6 +5,7 @@ import {
   View,
   TouchableOpacity,
   FlatList,
+  Image
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { TailwindProvider } from "tailwindcss-react-native";
@@ -58,6 +59,10 @@ export function ListBabyCare({ navigation }) {
         <TouchableOpacity>
           <Text className="text-black text-lg">Voltar</Text>
         </TouchableOpacity>
+        <Image
+            className="h-40 w-40"
+            source={require("../icons/logo_blue.png")}
+          />
         <Text className="font-semibold text-black text-2xl self-start ml-12">
           Linha Infantil
         </Text>

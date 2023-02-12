@@ -33,11 +33,6 @@ export function Login({ navigation }) {
           </Text>
         </View>
         <Input
-          icon={<Feather name="user" size={24} color="gray" />}
-          placeholder="Nome de Usuário"
-          onChangeText={(username) => setUsername(username)}
-        />
-        <Input
           icon={<AntDesign name="idcard" size={23} color="gray" />}
           placeholder="Identificação de funcionário"
           onChangeText={(id_employee) => setEmployeeId(id_employee)}
