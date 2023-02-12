@@ -33,7 +33,7 @@ export function ListBabyCare({ navigation }) {
     atualizarDados();
   }, []);
 
-  async function removeMedicamento(id) {
+  async function deleteItem(id) {
     const response = await AsyncStorage.getItem(
       "@app-farmaceutico:babyCare"
     );
@@ -95,7 +95,7 @@ export function ListBabyCare({ navigation }) {
                 <TouchableOpacity className="self-end mt-4" onPress={() => UpdateItem(item.id)} >
                   <Feather name="edit" size={24} color="black"/>
                 </TouchableOpacity>
-                <TouchableOpacity className="self-end mt-4" onPress={() => removeMedicamento(item.id)}>
+                <TouchableOpacity className="self-end mt-4" onPress={() => deleteItem(item.id)}>
                   <AntDesign name="delete" size={32} color="#C92A2A" />
                 </TouchableOpacity>
               </View>

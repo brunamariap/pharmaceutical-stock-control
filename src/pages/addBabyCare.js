@@ -34,13 +34,18 @@ export function AddBabyCare({ navigation }) {
       qtdItem,
     };
 
-    const response = await AsyncStorage.getItem("@app-farmaceutico:babyCare");
-    const previusData = response ? JSON.parse(response) : [];
+    if (nameItem !== "" && priceItem !== "" && qtdItem !== "") {
+      const response = await AsyncStorage.getItem("@app-farmaceutico:babyCare");
+      const previusData = response ? JSON.parse(response) : [];
 
-    const data = [...previusData, newData];
+      const data = [...previusData, newData];
 
-    await AsyncStorage.setItem("@app-farmaceutico:babyCare", JSON.stringify(data));
-    console.log(newData);
+      await AsyncStorage.setItem(
+        "@app-farmaceutico:babyCare",
+        JSON.stringify(data)
+      );
+      console.log(newData);
+    }
   }
 
   return (
