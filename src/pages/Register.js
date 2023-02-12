@@ -5,6 +5,9 @@ import { Input } from "../components/input";
 import { ButtonPrimary } from "../components/buttons";
 import api from "../services/api";
 import uuid from "react-native-uuid";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { AntDesign } from "@expo/vector-icons";
+import { Feather } from "@expo/vector-icons";
 
 export function Register({ navigation }) {
   const [posts, setPosts] = useState([]);
@@ -54,21 +57,33 @@ export function Register({ navigation }) {
             className="h-60 w-60"
             source={require("../icons/logo_blue.png")}
           />
-          <Text className="text-2xl text-black self-start font-semibold">Cadastro</Text>
+          <Text className="text-2xl text-black self-start font-semibold">
+            Cadastro
+          </Text>
         </View>
         <Input
+          icon={<Feather name="user" size={24} color="gray" />}
           placeholder="Nome Completo"
           onChangeText={(full_name) => setEmployeeFullName(full_name)}
         />
         <Input
+          icon={<AntDesign name="idcard" size={23} color="gray" />}
           placeholder="Identificação de funcionário"
           onChangeText={(id_employee) => setEmployeeId(id_employee)}
         />
         <Input
+          icon={<Feather name="user" size={24} color="gray" />}
           placeholder="Nome de Usuário"
           onChangeText={(username) => setUsername(username)}
         />
         <Input
+          icon={
+            <MaterialCommunityIcons
+              name="account-lock-open-outline"
+              size={24}
+              color="gray"
+            />
+          }
           placeholder="Senha"
           onChangeText={(password_em) => setPassWord(password_em)}
         />
