@@ -55,7 +55,7 @@ export function ListCuidados({ navigation }) {
     <TailwindProvider>
       <View className="bg-white flex items-center justify-center gap-y-4">
         <TouchableOpacity>
-          <Text className="text-black text-lg">Voltar</Text>
+          <Text className="text-black text-lg"></Text>
         </TouchableOpacity>
         <Image
             className="h-40 w-40"
