@@ -13,6 +13,8 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { Card } from "../components/card";
 import { AntDesign } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
+import { useCallback } from "react";
+import { useFocusEffect } from "@react-navigation/native";
 
 export function ListMedicamentos({ navigation }) {
   const [medicamentos, setMedicamentos] = useState([]);
@@ -26,9 +28,9 @@ export function ListMedicamentos({ navigation }) {
     console.log(data);
   }
 
-  useEffect(() => {
+  useFocusEffect(useCallback(() => {
     atualizarDados();
-  }, []);
+  }, []));
 
   async function deleteItem(id) {
     const response = await AsyncStorage.getItem(

@@ -13,6 +13,8 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { Card } from "../components/card";
 import { AntDesign } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
+import { useCallback } from "react";
+import { useFocusEffect } from "@react-navigation/native";
 
 export function ListSuplemento({ navigation }) {
   const [suplemento, setSuplemento] = useState([]);
@@ -24,9 +26,9 @@ export function ListSuplemento({ navigation }) {
     console.log(data);
   }
 
-  useEffect(() => {
+  useFocusEffect(useCallback(() => {
     atualizarDados();
-  }, []);
+  }, []));
 
   async function deleteItem(id) {
     const response = await AsyncStorage.getItem("@app-farmaceutico:suplementos");

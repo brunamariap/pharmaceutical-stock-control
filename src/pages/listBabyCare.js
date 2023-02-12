@@ -14,6 +14,8 @@ import { Card } from "../components/card";
 import { AntDesign } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { useCallback } from "react";
+import { useFocusEffect } from "@react-navigation/native";
 
 const Stack = createNativeStackNavigator();
 
@@ -27,9 +29,9 @@ export function ListBabyCare({ navigation }) {
     console.log(data);
   }
 
-  useEffect(() => {
+  useFocusEffect(useCallback(() => {
     atualizarDados();
-  }, []);
+  }, []));
 
   async function deleteItem(id) {
     const response = await AsyncStorage.getItem("@app-farmaceutico:babyCare");
