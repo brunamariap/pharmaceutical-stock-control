@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import {
-  StyleSheet,
   Text,
   View,
   TouchableOpacity,
@@ -11,14 +10,13 @@ import { TailwindProvider } from "tailwindcss-react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Card } from "../components/card";
 import { AntDesign } from "@expo/vector-icons";
+import { Feather } from "@expo/vector-icons";
 
 export function ListCuidados({ navigation }) {
   const [cuidados, setCuidados] = useState([]);
 
   async function atualizarDados() {
-    const response = await AsyncStorage.getItem(
-      "@app-farmaceutico:cuidados"
-    );
+    const response = await AsyncStorage.getItem("@app-farmaceutico:cuidados");
     const data = response ? JSON.parse(response) : {};
     setCuidados(data);
     console.log(data);
@@ -28,10 +26,8 @@ export function ListCuidados({ navigation }) {
     atualizarDados();
   }, []);
 
-  async function removeMedicamento(id) {
-    const response = await AsyncStorage.getItem(
-      "@app-farmaceutico:cuidados"
-    );
+  async function deleteItem(id) {
+    const response = await AsyncStorage.getItem("@app-farmaceutico:cuidados");
     const previusData = response ? JSON.parse(response) : [];
 
     const data = previusData.filter((item) => item?.id !== id);
@@ -49,7 +45,7 @@ export function ListCuidados({ navigation }) {
     const data = currentData.filter((item) => item?.id === id);
     console.log(data);
 
-    navigation.navigate("editcare", data);
+    navigation.navigate("editCare", data);
   }
 
   return (
@@ -80,9 +76,20 @@ export function ListCuidados({ navigation }) {
                   price={item.priceItem}
                   quantity={item.qtdItem}
                 />
-                <TouchableOpacity className="self-end mt-4" onPress={() => removeMedicamento(item.id)}>
-                  <AntDesign name="delete" size={32} color="#C92A2A" />
-                </TouchableOpacity>
+                <View className="flex flex-row items-center self-end gap-x-5">
+                  <TouchableOpacity
+                    className="self-end mt-4"
+                    onPress={() => UpdateItem(item.id)}
+                  >
+                    <Feather name="edit" size={32} color="black" />
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    className="self-end mt-4"
+                    onPress={() => deleteItem(item.id)}
+                  >
+                    <AntDesign name="delete" size={32} color="#C92A2A" />
+                  </TouchableOpacity>
+                </View>
               </View>
             </View>
           )}

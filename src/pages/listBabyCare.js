@@ -12,7 +12,6 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { Card } from "../components/card";
 import { AntDesign } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
-import { EditdBabyCare } from "./editBabyCare";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 const Stack = createNativeStackNavigator();

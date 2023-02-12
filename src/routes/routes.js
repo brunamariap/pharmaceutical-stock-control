@@ -61,7 +61,7 @@ export function RoutesStack() {
         <Stack.Screen name="editBabyItem" component={EditdBabyCare} />
         <Stack.Screen name="Lista suplementos" component={ListSuplemento} />
         <Stack.Screen name="Cadastrar suplemento" component={AddSuplementos} />
-        <Stack.Screen name="editSuplemento" component={EditSuplementos}/>
+        <Stack.Screen name="editSuplementos" component={EditSuplementos}/>
       </Stack.Navigator>
     );
   }

@@ -47,7 +47,7 @@ export function AddSuplementos({ navigation }) {
     <TailwindProvider>
       <View className="bg-white flex-1 items-center justify-center gap-y-4">
         <Text className="font-semibold text-black text-2xl self-start ml-12 border-b-2 border-b-black">Cadastrar Produto</Text>
-        <Text className="text-black">Categoria: suplementos</Text>
+        <Text className="text-black">Categoria: Suplementos e Vitaminas</Text>
 
         <View>
             <Input placeholder='Nome do item' onChangeText={(nameItem) => setNameItem(nameItem)}/>

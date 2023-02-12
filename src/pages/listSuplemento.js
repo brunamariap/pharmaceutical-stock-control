@@ -11,14 +11,13 @@ import { TailwindProvider } from "tailwindcss-react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Card } from "../components/card";
 import { AntDesign } from "@expo/vector-icons";
+import { Feather } from "@expo/vector-icons";
 
 export function ListSuplemento({ navigation }) {
   const [suplemento, setSuplemento] = useState([]);
 
   async function atualizarDados() {
-    const response = await AsyncStorage.getItem(
-      "@app-farmaceutico:suplemento"
-    );
+    const response = await AsyncStorage.getItem("@app-farmaceutico:suplementos");
     const data = response ? JSON.parse(response) : {};
     setSuplemento(data);
     console.log(data);
@@ -28,22 +27,22 @@ export function ListSuplemento({ navigation }) {
     atualizarDados();
   }, []);
 
-  async function removeMedicamento(id) {
-    const response = await AsyncStorage.getItem(
-      "@app-farmaceutico:suplemento"
-    );
+  async function deleteItem(id) {
+    const response = await AsyncStorage.getItem("@app-farmaceutico:suplementos");
     const previusData = response ? JSON.parse(response) : [];
 
     const data = previusData.filter((item) => item?.id !== id);
     setsuplemento(data);
     await AsyncStorage.setItem(
-      "@app-farmaceutico:suplemento",
+      "@app-farmaceutico:suplementos",
       JSON.stringify(data)
     );
   }
 
   async function UpdateItem(id) {
-    const response = await AsyncStorage.getItem("@app-farmaceutico:suplementos");
+    const response = await AsyncStorage.getItem(
+      "@app-farmaceutico:suplementos"
+    );
     const currentData = response ? JSON.parse(response) : {};
 
     const data = currentData.filter((item) => item?.id === id);
@@ -59,7 +58,7 @@ export function ListSuplemento({ navigation }) {
           <Text className="text-black text-lg">Voltar</Text>
         </TouchableOpacity>
         <Text className="font-semibold text-black text-2xl self-start ml-12">
-          Linha Infantil
+          Suplementos e Vitaminas
         </Text>
         <TouchableOpacity
           className="bg-primary w-[329px] p-4 rounded-2xl mt-8 flex flex-row gap-x-5 items-center justify-center"
@@ -80,9 +79,20 @@ export function ListSuplemento({ navigation }) {
                   price={item.priceItem}
                   quantity={item.qtdItem}
                 />
-                <TouchableOpacity className="self-end mt-4" onPress={() => removeMedicamento(item.id)}>
-                  <AntDesign name="delete" size={32} color="#C92A2A" />
-                </TouchableOpacity>
+                <View className="flex flex-row items-center self-end gap-x-5">
+                  <TouchableOpacity
+                    className="self-end mt-4"
+                    onPress={() => UpdateItem(item.id)}
+                  >
+                    <Feather name="edit" size={32} color="black" />
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    className="self-end mt-4"
+                    onPress={() => deleteItem(item.id)}
+                  >
+                    <AntDesign name="delete" size={32} color="#C92A2A" />
+                  </TouchableOpacity>
+                </View>
               </View>
             </View>
           )}

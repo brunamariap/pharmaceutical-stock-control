@@ -66,7 +66,7 @@ export function EditSuplementos({ navigation }) {
         <Text className="font-semibold text-black text-2xl self-start ml-12 border-b-2 border-b-black">
           Cadastrar Produto
         </Text>
-        <Text className="text-black">Categoria: Suplementos</Text>
+        <Text className="text-black">Categoria: Suplementos e Vitaminas</Text>
 
         <View>
           <Input
@@ -98,7 +98,7 @@ export function EditSuplementos({ navigation }) {
         </TouchableOpacity>
         <TouchableOpacity
           className="w-[329px] p-4 rounded-2xl bg-[#C92A2A] mt-10"
-          onPress={() => navigation.navigate("Lista linha infantil")}
+          onPress={() => navigation.navigate("Lista suplementos")}
         >
           <Text className="text-white font-bold text-xl self-center">
             Cancelar

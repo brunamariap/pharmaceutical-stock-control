@@ -98,7 +98,7 @@ export function EditCare({ navigation }) {
         </TouchableOpacity>
         <TouchableOpacity
           className="w-[329px] p-4 rounded-2xl bg-[#C92A2A] mt-10"
-          onPress={() => navigation.navigate("Lista linha infantil")}
+          onPress={() => navigation.navigate("Lista cuidados")}
         >
           <Text className="text-white font-bold text-xl self-center">
             Cancelar
