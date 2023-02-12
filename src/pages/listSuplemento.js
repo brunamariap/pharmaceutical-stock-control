@@ -42,6 +42,16 @@ export function ListSuplemento({ navigation }) {
     );
   }
 
+  async function UpdateItem(id) {
+    const response = await AsyncStorage.getItem("@app-farmaceutico:suplementos");
+    const currentData = response ? JSON.parse(response) : {};
+
+    const data = currentData.filter((item) => item?.id === id);
+    console.log(data);
+
+    navigation.navigate("editSuplementos", data);
+  }
+
   return (
     <TailwindProvider>
       <View className="bg-white flex items-center justify-center gap-y-4">
