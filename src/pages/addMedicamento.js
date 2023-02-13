@@ -53,10 +53,7 @@ export function AddMedicamento({ navigation }) {
         JSON.stringify(data)
       );
       console.log(newData);
-
-      setNameItem('')
-      setPriceItem('')
-      setQtdItem('')
+      navigation.navigate('Lista medicamentos')
     }
   }
 

@@ -53,6 +53,7 @@ export function AddSuplementos({ navigation }) {
         JSON.stringify(data)
       );
       console.log(newData);
+      navigation.navigate('Lista suplementos')
     }
   }
 

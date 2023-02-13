@@ -29,7 +29,7 @@ const Guias = createBottomTabNavigator();
 export function RoutesStack() {
   const { user } = useContext(AuthContext);
 
-  if (user.status === "Logado") {
+  if (user.status !== "Logado") {
     return (
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Home" component={Home} />

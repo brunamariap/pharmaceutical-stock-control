@@ -45,6 +45,7 @@ export function AddBabyCare({ navigation }) {
         JSON.stringify(data)
       );
       console.log(newData);
+      navigation.navigate('Lista linha infantil')
     }
   }
 

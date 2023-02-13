@@ -42,11 +42,7 @@ export function Register({ navigation }) {
     setEmployeeId('')
     setUsername('')
     setPassWord('')
-  };
-
-  const removerDado = async (id) => {
-    await api.delete(`posts/${id}`);
-    getDados();
+    navigation.navigate('Login')
   };
 
   useEffect(() => {
@@ -66,23 +62,26 @@ export function Register({ navigation }) {
           </Text>
         </View>
         <Input
-          default
+          default = {employee_full_name}
           icon={<Feather name="user" size={24} color="gray" />}
           placeholder="Nome Completo"
           onChangeText={(full_name) => setEmployeeFullName(full_name)}
         />
         <Input
+          default = {employee_id}
           icon={<AntDesign name="idcard" size={23} color="gray" />}
           placeholder="Identificação de funcionário"
           onChangeText={(id_employee) => setEmployeeId(id_employee)}
           typeKeyboard="number-pad"
         />
         <Input
+          default = {username}
           icon={<Feather name="user" size={24} color="gray" />}
           placeholder="Nome de Usuário"
           onChangeText={(username) => setUsername(username)}
         />
         <Input
+          default = {password}
           icon={
             <MaterialCommunityIcons
               name="account-lock-open-outline"

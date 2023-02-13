@@ -27,7 +27,7 @@ function AuthProvider({ children }) {
         password_employee === password
       ) {
         console.log("entrou");
-        setUser({employee_id: employee_id, username: username, employee_full_name: full_name_employee, status:'Logado'})
+        setUser({employee_id: employee_id, username: username_employee, employee_full_name: full_name_employee, status:'Logado'})
       }
     }
   }

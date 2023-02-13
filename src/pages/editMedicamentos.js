@@ -45,7 +45,7 @@ export function EditMedicamentos({ navigation }) {
       qtdItem,
     };
 
-    if (nameItem !== "" && priceItem !== "" && qtdItem !== "") {
+    if (nameItem && priceItem && qtdItem) {
       await deleteItem(id)
       const response = await AsyncStorage.getItem("@app-farmaceutico:medicamentos");
       const previusData = response ? JSON.parse(response) : [];
@@ -57,6 +57,7 @@ export function EditMedicamentos({ navigation }) {
         JSON.stringify(data)
       );
       console.log(newData);
+      navigation.navigate('Lista medicamentos')
     }
   }
 

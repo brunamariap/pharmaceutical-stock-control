@@ -34,7 +34,7 @@ export function ListCuidados({ navigation }) {
     const previusData = response ? JSON.parse(response) : [];
 
     const data = previusData.filter((item) => item?.id !== id);
-    setcuidados(data);
+    setCuidados(data);
     await AsyncStorage.setItem(
       "@app-farmaceutico:cuidados",
       JSON.stringify(data)

@@ -49,6 +49,7 @@ export function AddCuidados({ navigation }) {
         JSON.stringify(data)
       );
       console.log(newData);
+      navigation.navigate('Lista cuidados')
     }
   }
 

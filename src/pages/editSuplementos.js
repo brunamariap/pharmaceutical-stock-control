@@ -45,7 +45,7 @@ export function EditSuplementos({ navigation }) {
       qtdItem,
     };
 
-    if (nameItem !== "" && priceItem !== "" && qtdItem !== "") {
+    if (nameItem && priceItem && qtdItem) {
       await deleteItem(id)
       const response = await AsyncStorage.getItem("@app-farmaceutico:suplementos");
       const previusData = response ? JSON.parse(response) : [];
@@ -57,6 +57,7 @@ export function EditSuplementos({ navigation }) {
         JSON.stringify(data)
       );
       console.log(newData);
+      navigation.navigate('Lista suplementos')
     }
   }
 

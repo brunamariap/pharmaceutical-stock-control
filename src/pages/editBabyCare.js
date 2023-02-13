@@ -59,7 +59,7 @@ export function EditdBabyCare({ navigation }) {
       qtdItem,
     };
 
-    if (nameItem !== "" && priceItem !== "" && qtdItem !== "") {
+    if (nameItem && priceItem && qtdItem) {
       await deleteItem(id)
       const response = await AsyncStorage.getItem("@app-farmaceutico:babyCare");
       const previusData = response ? JSON.parse(response) : [];
@@ -71,6 +71,7 @@ export function EditdBabyCare({ navigation }) {
         JSON.stringify(data)
       );
       console.log(newData);
+      navigation.navigate('Lista linha infantil')
     }
   }
 
