@@ -26,12 +26,6 @@ import { EditSuplementos } from "../pages/editSuplementos";
 const Stack = createNativeStackNavigator();
 const Guias = createBottomTabNavigator();
 
-/* export function RoutesStack(){
-  return(
-    
-  )
-} */
-
 export function RoutesStack() {
   const { user } = useContext(AuthContext);
 

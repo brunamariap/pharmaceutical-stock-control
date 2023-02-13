@@ -34,7 +34,7 @@ export function AddBabyCare({ navigation }) {
       qtdItem,
     };
 
-    if (nameItem !== "" && priceItem !== "" && qtdItem !== "") {
+    if (nameItem && priceItem && qtdItem) {
       const response = await AsyncStorage.getItem("@app-farmaceutico:babyCare");
       const previusData = response ? JSON.parse(response) : [];
 

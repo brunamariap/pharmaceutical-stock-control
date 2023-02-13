@@ -38,6 +38,10 @@ export function Register({ navigation }) {
       });
       getDados();
     }
+    setEmployeeFullName('')
+    setEmployeeId('')
+    setUsername('')
+    setPassWord('')
   };
 
   const removerDado = async (id) => {
@@ -62,6 +66,7 @@ export function Register({ navigation }) {
           </Text>
         </View>
         <Input
+          default
           icon={<Feather name="user" size={24} color="gray" />}
           placeholder="Nome Completo"
           onChangeText={(full_name) => setEmployeeFullName(full_name)}
@@ -70,6 +75,7 @@ export function Register({ navigation }) {
           icon={<AntDesign name="idcard" size={23} color="gray" />}
           placeholder="Identificação de funcionário"
           onChangeText={(id_employee) => setEmployeeId(id_employee)}
+          typeKeyboard="number-pad"
         />
         <Input
           icon={<Feather name="user" size={24} color="gray" />}

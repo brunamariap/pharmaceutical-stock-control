@@ -24,7 +24,6 @@ function AuthProvider({ children }) {
 
       if (
         employee_id === id_employee &&
-        username_employee === username &&
         password_employee === password
       ) {
         console.log("entrou");

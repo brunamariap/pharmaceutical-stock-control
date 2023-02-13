@@ -80,7 +80,7 @@ export function ListBabyCare({ navigation }) {
           data={babyCare}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
-            <View className="w-[329px] border-2 border-primary rounded-lg content-center flex flex-row py-3 px-4 mt-8">
+            <View className="w-[329px] border-2 border-primary rounded-lg content-center flex flex-row py-3 px-4 mb-8">
               <View className="w-[100%]">
                 <Card
                   nameItem={item.nameItem}
