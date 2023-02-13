@@ -46,6 +46,7 @@ export function Login({ navigation }) {
               color="gray"
             />
           }
+          is_password
           placeholder="Senha"
           onChangeText={(password_em) => setPassWord(password_em)}
         />

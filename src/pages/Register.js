@@ -90,13 +90,10 @@ export function Register({ navigation }) {
             />
           }
           placeholder="Senha"
+          is_password
           onChangeText={(password_em) => setPassWord(password_em)}
         />
 
-        {/* <ButtonPrimary
-          texto={"Continuar"}
-          press={() => navigation.navigate("Inicial")}
-        /> */}
         <ButtonPrimary texto={"Continuar"} press={setDados} />
       </View>
     </TailwindProvider>

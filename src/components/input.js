@@ -9,6 +9,7 @@ export function Input(props) {
       <View className="w-[329px] border border-primary rounded-lg py-4 px-2 mt-8 flex flex-row items-center gap-x-5">
         <View className='start justify-self-start'>{props.icon}</View>
         <TextInput
+          secureTextEntry = {props.is_password?true:false}
           keyboardType={props.typeKeyboard}
           placeholder={props.placeholder}
           onChangeText={props.onChangeText}
